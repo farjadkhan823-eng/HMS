@@ -1,0 +1,28 @@
+<div class="main">
+    <div class="contact-wrapper ">
+        <div class="contact-box ">
+            <h3>Contact</h3>
+
+            <div class="mb-3 ">
+                <label>First Name</label>
+                <input type="text " class="form-control" id="fName" name="fName" [(ngModel)]="fName">
+            </div>
+
+            <div class="mb-3 ">
+                <label>Last Name</label>
+                <input type="text " class="form-control" id="lName" name="lName" [(ngModel)]="lName">
+            </div>
+
+            <div class="mb-3">
+                <label>Email</label>
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email">
+            </div>
+
+            <div class="mb-3">
+                <label>Message</label>
+                <textarea id="message" class="form-control" name="message" [(ngModel)]="message"></textarea>
+            </div>
+            <button class="btn submit-btn w-100" (click)="submitForm()">Submit</button>
+        </div>
+    </div>
+</div>

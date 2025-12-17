@@ -1,0 +1,28 @@
+.main {
+    width: calc(100% - 220px);
+    margin-left: 220px;
+    /* margin-top: -46%; */
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.main button {
+    min-width: 140px;
+    font-weight: 500;
+}
+
+.btn-info {
+    background: #C8A94F;
+    border: 1px solid #C8A94F;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-info:hover {
+    background: white;
+    color: #C8A94F;
+}

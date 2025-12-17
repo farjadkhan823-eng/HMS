@@ -1,0 +1,15 @@
+.main {
+    width: 83.9%;
+    margin-left: 220px;
+    /* margin-top: -46.4%; */
+}
+
+.card:hover {
+    box-shadow: 0 0 20px #a2842d !important;
+    /* transform: translateY(-3px); */
+    transition: 0.3s ease;
+}
+
+th {
+    background: #c5940cbd !important;
+}

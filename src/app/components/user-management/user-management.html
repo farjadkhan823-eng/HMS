@@ -1,0 +1,82 @@
+<div class="main">
+    <div class="container-fluid p-4">
+        <h3 class="mb-4">User Management</h3>
+        <!-- form start -->
+        <div class="card p-3 mb-3">
+            <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+                <h5>{{ editUser ? 'Edit User' : 'Add User' }}</h5>
+
+                <div class="card-flex">
+                    <label>Enter User Name</label>
+                    <div *ngIf="formGroup.get('name')?.invalid && formGroup.get('name')?.touched" class="error">
+                        Name is required !
+                    </div>
+                    <input class="form-control mb-2" placeholder="Name" formControlName="name">
+                    <label>Enter User Email</label>
+                    <div *ngIf="formGroup.get('email')?.invalid && formGroup.get('email')?.touched" class="error">
+                        Email is required !
+                    </div>
+                    <input class="form-control mb-2" placeholder="Email" formControlName="email" required>
+                    <label>Enter User Password</label>
+                    <div *ngIf="formGroup.get('password')?.invalid && formGroup.get('password')?.touched" class="error">
+                        Minimum 8 Character !
+                    </div>
+                    <input class="form-control mb-2" placeholder="Password" formControlName="password">
+                    <label>Select User Role</label>
+                    <select class="form-control mb-2" formControlName="role">
+            <option value="">Select Role</option>
+            <option>Admin</option>
+            <option>Manager</option>
+            <option>Accountant</option>
+            <option>Receptionist</option>
+        </select>
+
+                    <label>Select User Status</label>
+                    <select class="form-control mb-2" formControlName="status">
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+        </select>
+
+                    <button type="submit" class="btn btn-primary" (click)="save()" [disabled]="!formGroup.valid">
+            {{ editUser ? 'Update' : 'Add' }}
+        </button>
+
+                    <button class="btn btn-secondary ms-2" (click)="reset()">Clear</button>
+                </div>
+            </form>
+        </div>
+
+
+        <!-- table start -->
+        <div class="table-responsive" style="min-width: 90% !important;">
+            <table class="table table-hover align-middle" style="border: 2px solid #C8A94F; border-radius: 12px; overflow: hidden;">
+
+                <thead class="table-light" style="background-color: #C8A94F; color: white;">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users">
+                        <td>{{user.id}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.role}}</td>
+                        <td>{{user.status}}</td>
+                        <td>
+                            <button class="btn btn-sm btn-info" (click)="edit(user)">Edit</button>
+                            <button class="btn btn-sm btn-danger ms-1" (click)="delete(user.id)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+</div>

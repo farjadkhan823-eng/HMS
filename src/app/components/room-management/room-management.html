@@ -1,0 +1,311 @@
+<div class="main">
+    <div class="container-fluid p-4">
+        <h3 class="mb-4">Room Management</h3>
+        <!-- form start -->
+        <div class="card p-3 mb-3">
+            <h5>{{ editRoom ? 'Edit Room' : 'Add Room' }}</h5>
+            <div class="card-flex">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md">
+                            <label for="">Select Room</label>
+                            <select class="form-control mb-2" [(ngModel)]="form.room">
+                                <option value="Select">Select Role</option>
+                                <option>Standard</option>
+                                <option>Deluxe</option>
+                                <option>Suite</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md">
+                            <label for="">Room Price</label>
+                            <input type="number" class="form-control mb-2" id="price" name="price" [(ngModel)]="form.price">
+                        </div>
+
+                        <div class="col-md">
+                            <label for="">Bed</label>
+                            <input type="text" class="form-control mb-2" id="bed" name="bed" [(ngModel)]="form.bed">
+                        </div>
+
+                        <div class="col-md">
+                            <label for="">Windows</label>
+                            <input type="text" class="form-control mb-2" id="window" name="window" [(ngModel)]="form.window">
+                        </div>
+
+                        <div class="col-md">
+                            <label for="">Smoking</label>
+                            <select class="form-control mb-2" [(ngModel)]="form.smoking">
+                                <option value="No">No</option>
+                                <option>Yes</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md">
+                            <label for="">Room Size</label>
+                            <input type="text" class="form-control mb-2" id="size" name="size" [(ngModel)]="form.size">
+                        </div>
+
+                        <div class="col-md">
+                            <label for="">Internet</label>
+                            <select class="form-control mb-2" [(ngModel)]="form.internet">
+                                <option value="No">No</option>
+                                <option>Yes</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md">
+                            <label for="">Drinks</label>
+                            <select class="form-control mb-2" [(ngModel)]="form.drink">
+                                <option value="No">No</option>
+                                <option>Yes</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md">
+                            <label for="">Snacks</label>
+                            <select class="form-control mb-2" [(ngModel)]="form.snack">
+                                <option value="No">No</option>
+                                <option>Yes</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md">
+                            <label for="">Skin Care</label>
+                            <select class="form-control mb-2" [(ngModel)]="form.skincare">
+                                <option value="No">No</option>
+                                <option>Yes</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <h5>Room Appliances</h5>
+                        <div class="col-md">
+                            <label for="">Air Conditioner</label>
+                            <select class="form-control mb-2" [(ngModel)]="form.ac">
+                                <option value="No">No</option>
+                                <option>Yes</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md">
+                            <label for="">Fan</label>
+                            <select class="form-control mb-2" [(ngModel)]="form.fan">
+                                <option value="No">No</option>
+                                <option>Yes</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md">
+                            <label for="">Fridge</label>
+                            <select class="form-control mb-2" [(ngModel)]="form.fridge">
+                                <option value="No">No</option>
+                                <option>Yes</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md">
+                            <label for="">Mircrowave</label>
+                            <select class="form-control mb-2" [(ngModel)]="form.microwave">
+                                <option value="No">No</option>
+                                <option>Yes</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md">
+                            <label for="">Iron</label>
+                            <select class="form-control mb-2" [(ngModel)]="form.iron">
+                                <option value="No">No</option>
+                                <option>Yes</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md">
+                            <label for="">Media</label>
+                            <select class="form-control mb-2" [(ngModel)]="form.media">
+                                <option value="No">No</option>
+                                <option>Yes</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <label for="">Img 1</label>
+                            <input type="file" class="form-control mb-2" id="imgone" name="imgone" [(ngModel)]="form.imgone">
+                        </div>
+                        <div class="col-md">
+                            <label for="">Img 2</label>
+                            <input type="file" class="form-control mb-2" id="imgtwo" name="imgtwo" [(ngModel)]="form.imgtwo">
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-1"><button class="btn btn-primary" (click)="save()"> {{ editRoom ? 'Update' :
+                                'Add' }}</button></div>
+                        <div class="col-md-1"><button class="btn btn-secondary ms-2" (click)="reset()">Clear</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- table start -->
+        <div class="table-responsive" style="min-width: 90% !important;">
+            <table class="table table-hover align-middle" style="border: 2px solid #C8A94F; border-radius: 12px; overflow: hidden;">
+
+                <thead class="table-light" style="background-color: #C8A94F; color: white;">
+                    <tr>
+                        <th>#</th>
+                        <th>Room Ctg</th>
+                        <th>Room Price</th>
+                        <th>Bed</th>
+                        <th>Windows</th>
+                        <th>Smoking</th>
+                        <th>Room Size</th>
+                        <th>Internet</th>
+                        <th>Drinks</th>
+                        <th>Snacks</th>
+                        <th>Skin-Care</th>
+                        <th>Media</th>
+                        <th>AC</th>
+                        <th>Fans</th>
+                        <th>Fridge</th>
+                        <th>Microwave</th>
+                        <th>Iron</th>
+                        <th>Img 1</th>
+                        <th>Img 2</th>
+                        <th>Action</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let room of rooms()">
+                        <td>{{room.id}}</td>
+                        <td>{{room.room}}</td>
+                        <td>{{room.price}}</td>
+                        <td>{{room.bed}}</td>
+                        <td>{{room.window}}</td>
+                        <td>{{room.smoking}}</td>
+                        <td>{{room.size}}</td>
+                        <td>{{room.internet}}</td>
+                        <td>{{room.drink}}</td>
+                        <td>{{room.snack}}</td>
+                        <td>{{room.skincare}}</td>
+                        <td>{{room.media}}</td>
+                        <td>{{room.ac}}</td>
+                        <td>{{room.fan}}</td>
+                        <td>{{room.fridge}}</td>
+                        <td>{{room.microwave}}</td>
+                        <td>{{room.iron}}</td>
+                        <td>{{room.imgone}}</td>
+                        <td>{{room.imgtwo}}</td>
+                        <td>
+                            <button class="btn btn-sm btn-info" (click)="edit(room)">Edit</button>
+                            <button class="btn btn-sm btn-danger ms-1" (click)="delete(room.id)">Delete</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn" id="dtl" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: aqua;color: white;" (click)="setRoomCatIdInRoomDetail(room.id)">View</button>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<div class="other-tbl">
+    <div class="dlt-grid">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 1115px !important;margin-left: -200px !important;">
+                    <div>
+                        <h3 class="mb-4 rl">Rooms Listing</h3>
+                    </div>
+                    <div class="modal-body">
+                        <!-- form start -->
+                        <div class="card p-3 mb-3">
+                            <h5>{{ editRoomDetail ? 'Edit Room Details' : 'Add Room Details' }}
+                            </h5>
+                            <div class="card-flex listing-flex">
+                                <input type="text" class="form-control mb-2" id="roomNo" name="roomNo" [(ngModel)]="details.roomNo" placeholder="Enter Room Number">
+                                <select class="form-control mb-2" [(ngModel)]="details.status">
+                                                                <option value="Active">Active</option>
+                                                                <option value="Inactive">Inactive</option>
+                                                            </select>
+
+                                <select class="form-control mb-2" [(ngModel)]="details.reason">
+                                                                <option>Free</option>
+                                                                <option>Booked</option>
+                                                                <option>Cleaning</option>
+                                                                <option>Maintenance</option>
+                                                            </select>
+                                <div class="dtl">
+                                    <button class="btn btn-primary" (click)="saveDetails(roomDetailId());">
+                                                                    {{ editRoomDetail ? 'Update' : 'Add' }}
+                                                                </button>
+                                    <button class="btn btn-secondary ms-2" (click)="resetDetail()">Clear</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- table start -->
+                        <div class="" style="width: 66% !important;">
+                            <table class="table table-hover align-middle" style="border: 2px solid #C8A94F; border-radius: 12px; overflow: hidden;">
+
+                                <thead class="table-light" style="background-color: #C8A94F; color: white;">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Room Number</th>
+                                        <th>Status</th>
+                                        <th>Reason</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <!-- {{room.rooms | json}} -->
+                                    <tr *ngFor="let roomDetail of roomsDetails">
+                                        <td>{{roomDetail.id}}</td>
+                                        <td>{{roomDetail.roomNo}}</td>
+                                        <td>{{roomDetail.status}}</td>
+                                        <td>{{roomDetail.reason}}</td>
+                                        <td>
+                                            <button class="btn btn-info " (click)="editDetails(roomDetail) ">Edit</button>
+                                            <button class="btn btn-danger ms-1 " (click)="deleteDetail(roomDetail.id) ">Delete</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="button " class="btn btn-secondary close " data-bs-dismiss="modal ">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- <h1>Per Day Per Room Price : 5000 </h1>
+    <h3>Room Qty : {{roomQty()}}</h3>
+    <h3>Days : {{perDay()}}</h3>
+    <h3>Total Price : {{totalPrice()}} </h3>
+    <button (click)="addQty() ">Room Quantity + </button>
+    <button (click)="finalPrice() ">Day + </button> -->

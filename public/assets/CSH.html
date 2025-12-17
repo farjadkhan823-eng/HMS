@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)http://localhost:4200/main/userManagement -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="module" src="./CSH_files/client"></script>
+
+    
+    <title>CSH</title>
+    <!--<base href="/">--><base href=".">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="http://localhost:4200/icon3.webp">
+<link rel="stylesheet" href="./CSH_files/styles.css"><style>
+
+hr[_ngcontent-ng-c2357292958] {
+  border: 1px solid #C8A94F;
+}
+.nav-logo[_ngcontent-ng-c2357292958] {
+  color: #C8A94F;
+  letter-spacing: 2px;
+  font-weight: 700;
+  font-size: 26px;
+  padding: 12px 0;
+  text-align: center;
+  border-bottom: 2px solid #C8A94F;
+  width: 100%;
+}
+.sidebar[_ngcontent-ng-c2357292958] {
+  background-color: #FFFFFF;
+  border-right: 1px solid #E5E5E5;
+  padding-top: 15px;
+  border-right: 1px solid black;
+  position: fixed;
+}
+.nav-link[_ngcontent-ng-c2357292958]   i[_ngcontent-ng-c2357292958] {
+  margin-right: 8px;
+  width: 18px;
+}
+.nav-link[_ngcontent-ng-c2357292958] {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  width: 100px;
+  color: black !important;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.2s ease-in;
+  width: 12em;
+  border-radius: 10px;
+}
+.nav-link[_ngcontent-ng-c2357292958]:hover {
+  color: white !important;
+  background-color: #C8A94F;
+  box-shadow: 0px 0px 8px rgba(200, 169, 79, 0.3);
+}
+.nav-item[_ngcontent-ng-c2357292958] {
+  transition: all 0.2s ease-in;
+  height: 40px;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  border-radius: 10px;
+}
+.nav-link[_ngcontent-ng-c2357292958]:active {
+  background-color: #C8A94F;
+}
+/*# sourceMappingURL=/sidebar.css.map */</style><style>
+
+.main[_ngcontent-ng-c4109829965] {
+  width: 83%;
+  margin-left: 220px;
+  background-color: #FFFFFF;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+}
+.heading[_ngcontent-ng-c4109829965] {
+  color: #2A2A2A;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+.card[_ngcontent-ng-c4109829965] {
+  border-radius: 10px;
+  padding: 20px;
+  border: none;
+  width: 99%;
+  margin-left: 0.5%;
+}
+.card[_ngcontent-ng-c4109829965]   h5[_ngcontent-ng-c4109829965] {
+  color: #2A2A2A;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+.form-control[_ngcontent-ng-c4109829965] {
+  background: white !important;
+  border: 1px solid #C8A94F !important;
+  color: #2A2A2A !important;
+  padding: 10px;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+}
+.form-control[_ngcontent-ng-c4109829965]:focus {
+  border-color: #b9983e !important;
+  box-shadow: 0 0 5px rgba(200, 169, 79, 0.4);
+}
+.card-flex[_ngcontent-ng-c4109829965] {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.btn-primary[_ngcontent-ng-c4109829965] {
+  background: #C8A94F;
+  border: 1px solid #C8A94F;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: .2s;
+}
+.btn-primary[_ngcontent-ng-c4109829965]:hover {
+  background: white;
+  color: #C8A94F;
+}
+.btn-secondary[_ngcontent-ng-c4109829965] {
+  background: white;
+  border: 1px solid #C8A94F;
+  padding: 10px 20px;
+  color: #C8A94F;
+  border-radius: 6px;
+  font-weight: 600;
+}
+.btn-secondary[_ngcontent-ng-c4109829965]:hover {
+  background: #C8A94F;
+  color: white;
+}
+table[_ngcontent-ng-c4109829965] {
+  color: #2A2A2A;
+  width: 150%;
+}
+.table-light[_ngcontent-ng-c4109829965]   th[_ngcontent-ng-c4109829965] {
+  background: #c5940cbd !important;
+  color: black !important;
+  font-weight: 600;
+}
+.table-bordered[_ngcontent-ng-c4109829965]   td[_ngcontent-ng-c4109829965], 
+.table-bordered[_ngcontent-ng-c4109829965]   th[_ngcontent-ng-c4109829965] {
+  border: 1px solid white !important;
+}
+td[_ngcontent-ng-c4109829965], 
+th[_ngcontent-ng-c4109829965] {
+  border: 1px solid rgb(0, 0, 0) !important;
+}
+.btn-info[_ngcontent-ng-c4109829965] {
+  background: #C8A94F;
+  border: none;
+  color: white;
+}
+.btn-info[_ngcontent-ng-c4109829965]:hover {
+  background: #b9983e;
+}
+.btn-info[_ngcontent-ng-c4109829965]:focus {
+  background: #b9983e;
+  color: white;
+}
+.btn-danger[_ngcontent-ng-c4109829965] {
+  background: #dc3545;
+  border: none;
+}
+.btn-danger[_ngcontent-ng-c4109829965]:hover {
+  background: #bb2d3b;
+}
+.rl[_ngcontent-ng-c4109829965] {
+  text-align: center;
+  margin-top: 10px;
+}
+.listing-flex[_ngcontent-ng-c4109829965] {
+  display: flex !important;
+  flex-direction: row !important;
+}
+.listing-flex[_ngcontent-ng-c4109829965]   .form-control[_ngcontent-ng-c4109829965] {
+  width: 197px !important;
+}
+.close[_ngcontent-ng-c4109829965] {
+  margin-left: 3%;
+  margin-bottom: 2%;
+}
+.dlt[_ngcontent-ng-c4109829965]   button[_ngcontent-ng-c4109829965] {
+  height: 32px;
+}
+/*# sourceMappingURL=/room-management.css.map */</style></head>
+
+<body>
+    <app-root ng-version="20.3.15"><router-outlet></router-outlet><app-main><app-sidebar _nghost-ng-c2357292958=""><div _ngcontent-ng-c2357292958="" class="sidebar p-3" style="width: 220px; height: 100vh;"><ul _ngcontent-ng-c2357292958="" class="nav flex-column"><h3 _ngcontent-ng-c2357292958="" class="nav-logo">CSH</h3><li _ngcontent-ng-c2357292958="" class="nav-item"><a _ngcontent-ng-c2357292958="" class="nav-link" href="http://localhost:4200/main/dashboard"><i _ngcontent-ng-c2357292958="" class="fas fa-tachometer-alt"></i> Dashboard</a></li><hr _ngcontent-ng-c2357292958=""><li _ngcontent-ng-c2357292958="" class="nav-item"><a _ngcontent-ng-c2357292958="" class="nav-link" href="http://localhost:4200/main/userManagement"><i _ngcontent-ng-c2357292958="" class="fas fa-users"></i> User Management</a></li><li _ngcontent-ng-c2357292958="" class="nav-item"><a _ngcontent-ng-c2357292958="" class="nav-link" href="http://localhost:4200/main/roomManagement"><i _ngcontent-ng-c2357292958="" class="fas fa-door-open"></i> Room Management</a></li><hr _ngcontent-ng-c2357292958=""><li _ngcontent-ng-c2357292958="" class="nav-item"><a _ngcontent-ng-c2357292958="" class="nav-link" href="http://localhost:4200/main/booking"><i _ngcontent-ng-c2357292958="" class="fas fa-calendar-check"></i> Booking</a></li><li _ngcontent-ng-c2357292958="" class="nav-item"><a _ngcontent-ng-c2357292958="" class="nav-link" href="http://localhost:4200/main/reports"><i _ngcontent-ng-c2357292958="" class="fas fa-chart-line"></i> Reports</a></li><hr _ngcontent-ng-c2357292958=""><li _ngcontent-ng-c2357292958="" class="nav-item"><a _ngcontent-ng-c2357292958="" class="nav-link" href="http://localhost:4200/main/about"><i _ngcontent-ng-c2357292958="" class="fas fa-info-circle"></i> About</a></li><li _ngcontent-ng-c2357292958="" class="nav-item"><a _ngcontent-ng-c2357292958="" class="nav-link" href="http://localhost:4200/main/contact"><i _ngcontent-ng-c2357292958="" class="fas fa-phone-alt"></i> Contact</a></li><li _ngcontent-ng-c2357292958="" class="nav-item"><a _ngcontent-ng-c2357292958="" class="nav-link" href="http://localhost:4200/main/privacyPolicy"><i _ngcontent-ng-c2357292958="" class="fas fa-shield-alt"></i> Privacy Policy</a></li></ul></div></app-sidebar><router-outlet></router-outlet><!--container--></app-main><!--container--></app-root>
+<script src="./CSH_files/scripts.js.download" defer=""></script><script src="./CSH_files/main.js.download" type="module"></script>
+
+</body></html>
