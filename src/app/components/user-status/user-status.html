@@ -1,0 +1,52 @@
+<div class="container animated mt-5">
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="user-card active-card">
+                <div class="card-header main-header">
+                    <h5 class="mb-0"><i class="fa-solid fa-user-check me-2"></i>Active Users</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div class="user-row header-row text-uppercase">
+                        <div class="col-4">ID</div>
+                        <div class="col-4">Name</div>
+                        <div class="col-4 text-end">Status</div>
+                    </div>
+                    <div class="scroll">
+                        <div *ngFor="let user of activeUsers" class="user-row">
+                            <div class="col-4 fw-bold">#{{user.id}}</div>
+                            <div class="col-4 user-name">{{user.name}}</div>
+                            <div class="col-4 text-end">
+                                <span class="status-pill active-pill">{{user.status}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="user-card inactive-card">
+                <div class="card-header main-header">
+                    <h5 class="mb-0"><i class="fa-solid fa-user-xmark me-2"></i>Inactive Users</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div class="user-row header-row text-uppercase">
+                        <div class="col-2">ID</div>
+                        <div class="col-6">Name</div>
+                        <div class="col-4 text-end">Status</div>
+                    </div>
+                    <div class="scroll">
+                        <div *ngFor="let user of inactiveUsers" class="user-row">
+                            <div class="col-2 fw-bold">#{{user.id}}</div>
+                            <div class="col-6 user-name">{{user.name}}</div>
+                            <div class="col-4 text-end">
+                                <span class="status-pill inactive-pill">{{user.status}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,41 +1,65 @@
 <div class="main">
     <div class="container-fluid p-4">
         <h3 class="mb-4">User Management</h3>
-        <!-- form start -->
+
         <div class="card p-3 mb-3">
             <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
                 <h5>{{ editUser ? 'Edit User' : 'Add User' }}</h5>
 
                 <div class="card-flex">
-                    <label>Enter User Name</label>
-                    <div *ngIf="formGroup.get('name')?.invalid && formGroup.get('name')?.touched" class="error">
-                        Name is required !
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Enter User Name</label>
+                                <div *ngIf="formGroup.get('name')?.invalid && formGroup.get('name')?.touched" class="error">
+                                    Name is required !
+                                </div>
+                                <input class="form-control mb-2" placeholder="Name" formControlName="name">
+                            </div>
+                            <div class="col-md-6">
+                                <label>Enter User Email</label>
+                                <div *ngIf="formGroup.get('email')?.invalid && formGroup.get('email')?.touched" class="error">
+                                    Email is required !
+                                </div>
+                                <input class="form-control mb-2" placeholder="Email" formControlName="email" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>Enter User Password</label>
+                                <div *ngIf="formGroup.get('password')?.invalid && formGroup.get('password')?.touched" class="error">
+                                    Minimum 8 Character !
+                                </div>
+                                <div class="row">
+                                    <div>
+                                        <div class="input-group">
+                                            <input [type]="showPassword ? 'text' : 'password'" class="form-control" id="password" placeholder="Enter password" formControlName="password">
+                                            <button class="btn btn-outline-secondary" type="button" (click)="togglePasswordVisibility()">
+                                        {{ showPassword ? '(x_x)' : '(O_O)' }}
+                                        </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Select User Role</label>
+                                <select class="form-control mb-2" formControlName="role">
+                        <option value="">Select Role</option>
+                        <option>Admin</option>
+                        <option>Manager</option>
+                        <option>Accountant</option>
+                        <option>Receptionist</option>
+                        </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Select User Status</label>
+                                <select class="form-control mb-2" formControlName="status">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                        </select>
+                            </div>
+                        </div>
                     </div>
-                    <input class="form-control mb-2" placeholder="Name" formControlName="name">
-                    <label>Enter User Email</label>
-                    <div *ngIf="formGroup.get('email')?.invalid && formGroup.get('email')?.touched" class="error">
-                        Email is required !
-                    </div>
-                    <input class="form-control mb-2" placeholder="Email" formControlName="email" required>
-                    <label>Enter User Password</label>
-                    <div *ngIf="formGroup.get('password')?.invalid && formGroup.get('password')?.touched" class="error">
-                        Minimum 8 Character !
-                    </div>
-                    <input class="form-control mb-2" placeholder="Password" formControlName="password">
-                    <label>Select User Role</label>
-                    <select class="form-control mb-2" formControlName="role">
-            <option value="">Select Role</option>
-            <option>Admin</option>
-            <option>Manager</option>
-            <option>Accountant</option>
-            <option>Receptionist</option>
-        </select>
-
-                    <label>Select User Status</label>
-                    <select class="form-control mb-2" formControlName="status">
-            <option value="active">Active</option>
-            <option value="inactive">Inactive</option>
-        </select>
 
                     <button type="submit" class="btn btn-primary" (click)="save()" [disabled]="!formGroup.valid">
             {{ editUser ? 'Update' : 'Add' }}
@@ -47,7 +71,7 @@
         </div>
 
 
-        <!-- table start -->
+
         <div class="table-responsive" style="min-width: 90% !important;">
             <table class="table table-hover align-middle" style="border: 2px solid #C8A94F; border-radius: 12px; overflow: hidden;">
 

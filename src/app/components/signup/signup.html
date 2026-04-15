@@ -1,0 +1,38 @@
+<div class="login-wrapper">
+    <div class="login-box">
+        <div class="log-box">
+            <h3>Signup</h3>
+            <form [formGroup]="userSignupObj" (ngSubmit)="onSubmit()">
+                <div class="card-flex">
+                    <label>User Name</label>
+                    <input type="text" class="form-control mb-2" placeholder="User Name" formControlName="userName">
+
+                    <label>Email</label>
+                    <input type="email" class="form-control mb-2" placeholder="Email" formControlName="email">
+
+                    <label>Password</label>
+                    <div class="row">
+                        <div>
+                            <div class="input-group">
+                                <input [type]="showPassword ? 'text' : 'password'" class="form-control" id="password" placeholder="Enter password" formControlName="password">
+                                <button class="btn btn-outline-secondary" type="button" (click)="togglePasswordVisibility()">
+                                        {{ showPassword ? '(x_x)' : '(O_O)' }}
+                                        </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn login-btn w-100" [disabled]="!userSignupObj.valid">
+            Signup
+          </button>
+
+                    <div class="switch-page">
+                        <a (click)="SignupToLogin()" style="cursor:pointer;">
+              Already have an account !
+            </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

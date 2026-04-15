@@ -1,0 +1,72 @@
+<div class="main">
+    <div class="container p-4">
+        <h2 class="mb-4 t1">Booking Management</h2>
+        <div class="table-responsive" style="min-width: 90% !important;">
+            <table class="table table-hover align-middle" style="border: 2px solid #C8A94F; border-radius: 12px; overflow: hidden;">
+                <thead class="table-light" style="background-color: #C8A94F; color: white;">
+                    <tr>
+                        <th>ID</th>
+                        <th>Guest Name</th>
+                        <th>Category</th>
+                        <th>Room Qty</th>
+                        <th>CheckIn</th>
+                        <th>CheckOut</th>
+                        <th>Rooms</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                        <th>Feedback</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let booking of bookings">
+                        <td>{{ booking.id }}</td>
+                        <td>{{ booking.name }}</td>
+                        <td>{{ booking.roomCtg }}</td>
+                        <td>{{ booking.roomQty }}</td>
+                        <td>{{ booking.checkIn }}</td>
+                        <td>{{ booking.checkOut }}</td>
+                        <td>{{ booking.roomNumbers.join(', ') }}</td>
+                        <td>{{ booking.status }}</td>
+                        <td>
+
+                            <div class="row">
+                                <div class="again col-md-4">
+                                    <button (click)="openModalAgain(booking)" class="btn btn-sm btn-danger ms-1" [disabled]="booking.status !== EStatus.PENDING">Action</button>
+                                </div>
+                            </div>
+                            <!-- //// -->
+                            <!-- <button class="btn btn-sm btn-success ms-1" (click)="confirmedStatus(booking.id)" [disabled]="booking.status !== EStatus.PENDING">Confirmed</button> -->
+                        </td>
+                        <td>
+                            <button class="btn btn-sm btn-info" (click)="open(booking)" *ngIf="booking.status === EStatus.REJECTED">Feedback</button>
+                            <dialog #modal class="feedback-modal">
+                                <div class="modal-header">
+                                    <h5>Feedback</h5>
+                                    <button class="close-btn" (click)="modal.close()">✕</button>
+                                </div>
+                                <div class="modal-body">
+                                    <textarea class="feedback-textarea" [(ngModel)]="feedbackInput"></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-sm btn-danger" (click)="modal.close()">Cancel</button>
+                                    <button class="btn btn-sm btn-save" (click)="saveFeedback()">Save</button>
+                                </div>
+                            </dialog>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isModalOpenAgain" class="modal-container">
+    <div class="modal-content">
+        <h5>Are You Sure !</h5>
+        <div class="row">
+            <button (click)="confirmation(false)" class="btn btn-sm btn-danger w-50">Rejected</button>
+            <button class="btn btn-sm btn-success w-50" (click)="confirmation(true)">Confirmed</button>
+        </div>
+    </div>
+</div>

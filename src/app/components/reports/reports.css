@@ -2,4 +2,153 @@
     width: 83%;
     margin-left: 220px;
     /* margin-top: -46.4%; */
+    opacity: 0;
+    animation: fadeIn 0.6s ease-in forwards;
 }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.main-header {
+    background-color: rgb(255, 255, 255);
+    color: #C8A94F;
+    padding: 22px;
+    border-bottom: 2px solid #C8A94F;
+    text-align: center;
+}
+
+.heading h3 {
+    color: #C8A94F;
+}
+
+
+/* .hovers {
+    transition: all 0.3s ease;
+}
+
+.hovers:hover {
+    background-color: antiquewhite;
+} */
+
+.table-header {
+    background-color: #C8A94F !important;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.user-row {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    transition: all 0.3s ease;
+}
+
+.header-row {
+    background-color: rgb(235, 235, 235);
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    border-bottom: 2px solid #C8A94F;
+    letter-spacing: 1px;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.status-pill {
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: capitalize;
+}
+
+.active-pill {
+    background-color: #C8A94F;
+    color: #614900;
+    border: 1px solid #614900;
+}
+
+.inactive-pill {
+    background-color: rgba(200, 200, 110);
+    color: #614900;
+    border: 1px solid #614900;
+}
+
+.user-row:hover {
+    background-color: #b28f2777;
+    cursor: pointer;
+}
+
+.animated {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.scroll {
+    max-height: 300px;
+    overflow: scroll;
+}
+
+.revenue-box {
+    background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+    border: 2px solid #D4AF37;
+    border-radius: 15px;
+    padding: 25px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(212, 175, 55, 0.2);
+    transition: transform 0.3s ease;
+    margin: 20px auto;
+}
+
+.revenue-box:hover {
+    transform: translateY(-5px);
+    /* transform: perspective(500); */
+    /* transform: rotateX(-30deg); */
+    /* transform: rotateY(10deg); */
+    /* transform: rotateZ(5deg); */
+}
+
+.revenue-heading h2 {
+    color: #E6BE8A;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.revenue-price h2 {
+    color: #C8A94F;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.revenue-price h2::after {
+    content: ' PKR';
+}
+
+
+/* .revenue-price {
+    background-color: grey;
+} */

@@ -29,4 +29,16 @@ private key = 'users'
     let users = this.getUsers().filter(u => u.id !== id);
     this.saveUsers(users);
   }
+
+userActiveStatus(status: string): User[] {
+    return this.getUsers().filter(u => u.status === status);
+  }
+
+activeUserLength(status:string):number{ 
+return this.userActiveStatus(status).length
+}
+
+  userInactiveStatus(status: string): User[] {
+    return this.getUsers().filter(u => u.status === status);
+  }
 }

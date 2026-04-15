@@ -1,13 +1,13 @@
-export enum Reasons {
+
+export enum Reason{
 FREE = "Free",
-BOOKED = "Booked",
-CLEANING = "Cleaning",
-MAINTENANCE = "Maintenance"
+Booked = "Booked",
+PENDING = "Pending"
 }
 
 export interface RoomDetails{
   id: number;
   roomNo: string;
-  status : string;
-  reason: Reasons;
+  status: string;
+  reason: string;
 }

@@ -4,13 +4,25 @@ export enum ECtg{
   SUITE = "Suite"
 }
 
+export enum EStatus{
+  PENDING = "PENDING",
+  CONFIRMED = "CONFIRMED",
+  REJECTED = "REJECTED"
+}
+
 export interface EBooking {
   id: number;
   name: string;
-  email: string;
-  phone:string;
+  phone: number;
+  email:string;
   roomCtg: ECtg;
-  roomQty:number;
-  checkIn:string;
-  checkOut:string;
+  roomQty: number;
+  checkIn: string;
+  checkOut: string;
+  days: number;
+  price: number;
+  status : EStatus;
+  feedback: string;
+  timing:number;
+  roomNumbers: string[];
 }

@@ -1,5 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { Room } from '../models/room.model';
+import { RoomDetails } from '../components/room-details/room-details';
 
 @Injectable({
   providedIn: 'root',
@@ -43,8 +44,21 @@ export class RoomService {
     this.load();
    }
 
-   
   load() {
     this.rooms.set(this.getRooms());
   }
+
+  getUniqueCtg(): string[]{
+   const rooms = this.getRooms();
+   return rooms.map(r => r.room);
+  }
+
+  getRoomByCtg(ctg : string): Room[]{
+    return this.getRooms().filter(r => r.room === ctg);
+  }
+
+  getRoomByCtgObj(ctg : string): Room | undefined {
+    return this.getRooms().find(r => r.room === ctg);
+  }
+ 
 }

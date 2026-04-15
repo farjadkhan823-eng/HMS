@@ -1,3 +1,121 @@
-<div class="main">
-    <h2 class="ms-5 text-dark">Reports</h2>
+<div class="main p-4">
+    <h2 class="mb-4 t1">Reports</h2>
+    <div class="revenue-box">
+        <div class=" revenue-heading">
+            <h2>Our Revenue</h2>
+        </div>
+        <div class=" revenue-price">
+            <h2>
+                {{bookingPrice}}
+            </h2>
+        </div>
+    </div>
+    <div class="heading mt-4" style="text-align: center;">
+        <h3>Recent Bookings</h3>
+    </div>
+    <div class="container animated mt-5">
+        <div class="row g-4">
+            <div class="col-md-12">
+                <div class="user-card">
+                    <div class="card-body p-0">
+                        <div class="user-row header-row table-header">
+                            <div class="col-2 hovers">ID</div>
+                            <div class="col-2 hovers">Name</div>
+                            <div class="col-2 hovers">Ctg</div>
+                            <div class="col-2 hovers">Qty</div>
+                            <div class="col-2 hovers">Check-In</div>
+                            <div class="col-2 hovers">Check-Out</div>
+                        </div>
+                        <div class="scroll">
+                            <div *ngFor="let booking of confirmedBookings" class="user-row">
+                                <div class="col-2 hovers fw-bold">#{{booking.id}}</div>
+                                <div class="col-2 hovers">{{booking.name}}</div>
+                                <div class="col-2 hovers">{{booking.roomCtg}}</div>
+                                <div class="col-2 hovers">{{booking.roomQty}}</div>
+                                <div class="col-2 hovers">{{booking.checkIn}}</div>
+                                <div class="col-2 hovers">{{booking.checkOut}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ///seperate/// -->
+    <div class="container animated mt-5">
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="user-card active-card">
+                    <div class="card-header main-header">
+                        <h5 class="mb-0"><i class="fa-solid fa-check me-2"></i>Confirmed Bookings</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="user-row header-row text-uppercase">
+                            <div class="col-3">ID</div>
+                            <div class="col-3">Name</div>
+                            <div class="col-3">Category</div>
+                            <div class="col-3 text-center">Status</div>
+                        </div>
+                        <div class="scroll">
+                            <div *ngFor="let booking of confirmedBookings" class="user-row">
+                                <div class="col-3 fw-bold">#{{booking.id}}</div>
+                                <div class="col-3 user-name">{{booking.name}}</div>
+                                <div class="col-3 user-name">{{booking.roomCtg}}</div>
+                                <div class="col-3 text-end">
+                                    <span class="status-pill active-pill">{{booking.status}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+                <div class="user-card inactive-card">
+                    <div class="card-header main-header">
+                        <h5 class="mb-0"><i class="fa-solid fa-ban me-2"></i>Rejected Bookings</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="user-row header-row text-uppercase">
+                            <div class="col-3 box">ID</div>
+                            <div class="col-3 box">Name</div>
+                            <div class="col-3 box">Category</div>
+                            <div class="col-3 box text-center">Status</div>
+                        </div>
+                        <div class="scroll">
+                            <div *ngFor="let booking of rejectedBookings" class="user-row">
+                                <div class="col-3 box fw-bold">#{{booking.id}}</div>
+                                <div class="col-3 box user-name">{{booking.name}}</div>
+                                <div class="col-3 box user-name">{{booking.roomCtg}}</div>
+                                <div class="col-3 box text-end">
+                                    <span class="status-pill inactive-pill">{{booking.status}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row ms-5 mt-5">
+            <div class="heading mt-4" style="text-align: center;">
+                <h3>Bookings Ratio</h3>
+            </div>
+            <div class="col-md-12">
+                <app-booking-status-chart></app-booking-status-chart>
+            </div>
+        </div>
+
+        <div class="row ms-5 mt-5">
+            <div class="heading mt-4" style="text-align: center;">
+                <h3>Booking Category Ratio</h3>
+            </div>
+            <div class="col-md-12">
+                <app-booking-ctg-chart></app-booking-ctg-chart>
+            </div>
+        </div>
+    </div>
 </div>

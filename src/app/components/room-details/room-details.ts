@@ -1,23 +1,40 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { RouterOutlet } from '@angular/router';
+import { Component , OnInit} from '@angular/core';
+import { RoomService } from '../../services/room-service';
+import { CommonModule } from '@angular/common';
+import { Room } from '../../models/room.model';
 
 @Component({
   selector: 'app-room-details',
-  imports: [RouterOutlet],
+  imports: [CommonModule],
   templateUrl: './room-details.html',
   styleUrl: './room-details.css',
 })
-export class RoomDetails {
+export class RoomDetails implements OnInit{
+ categories: string[] =[];
+ rooms : Room[] =[];
+ selectedCtg = '';
 
-  constructor(private router : Router) {}
-  standard() {
-    this.router.navigate(['main/roomDetails/standardRoomDetails']);
+
+constructor(private roomService :  RoomService){}
+
+  ngOnInit(): void {
+    this.loadCategories();
+  //  let num:number = 20;  
+  //  console.log(num)
   }
-   delux() {
-    this.router.navigate(['main/roomDetails/deluxRoomDetails']);
+
+  loadCategories(){
+    this.categories = this.roomService.getUniqueCtg();
   }
-   suit() {
-    this.router.navigate(['main/roomDetails/suitRoomDetails']);
+
+  onCtgClick(ctg: string){
+    this.selectedCtg = ctg;
+    this.rooms = this.roomService.getRoomByCtg(ctg);
+    // console.log(this.rooms)
   }
+
+  getRoomImage(image: string): string {
+    return 'assets/' + image.split('C:\\fakepath\\')[1];
+  }
+
 }

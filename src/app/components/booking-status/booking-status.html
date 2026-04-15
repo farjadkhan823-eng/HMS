@@ -1,0 +1,50 @@
+<div class="container animated mt-5">
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="user-card active-card">
+                <div class="card-header main-header">
+                    <h5 class="mb-0"><i class="fa-solid fa-check"></i>Active Bookings</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div class="user-row header-row text-uppercase">
+                        <div class="col-4">ID</div>
+                        <div class="col-4">Room No</div>
+                        <div class="col-4">Activity</div>
+                    </div>
+                    <div class="scroll">
+                        <div *ngFor="let room of activeBooking" class="user-row">
+                            <div class="col-4 fw-bold">#{{room.id}}</div>
+                            <div class="col-4 fw-bold">{{room.roomNo}}</div>
+                            <div class="col-4 room-name">
+                                <span class="status-pill inactive-pill">{{room.reason}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="user-card active-card">
+                <div class="card-header main-header">
+                    <h5 class="mb-0"><i class="fa fa-times"></i>Inactive Bookings</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div class="user-row header-row text-uppercase">
+                        <div class="col-4">ID</div>
+                        <div class="col-4">Room No</div>
+                        <div class="col-4">Activity</div>
+                    </div>
+                    <div class="scroll">
+                        <div *ngFor="let room of inactiveBooking" class="user-row">
+                            <div class="col-4 fw-bold">#{{room.id}}</div>
+                            <div class="col-4 fw-bold">{{room.roomNo}}</div>
+                            <div class="col-4 room-name">
+                                <span class="status-pill active-pill">{{room.reason}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

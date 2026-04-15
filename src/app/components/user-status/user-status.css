@@ -1,0 +1,80 @@
+.user-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid #C8A94F;
+}
+
+.main-header {
+    background-color: rgb(255, 255, 255);
+    color: #C8A94F;
+    padding: 22px;
+    border-bottom: 2px solid #C8A94F;
+    text-align: center;
+}
+
+.user-row {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    transition: all 0.3s ease;
+}
+
+.header-row {
+    background-color: rgb(235, 235, 235);
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    border-bottom: 2px solid #C8A94F;
+    letter-spacing: 1px;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.status-pill {
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: capitalize;
+}
+
+.active-pill {
+    background-color: #C8A94F;
+    color: #614900;
+    border: 1px solid #614900;
+}
+
+.inactive-pill {
+    background-color: rgba(200, 200, 110);
+    color: #614900;
+    border: 1px solid #614900;
+}
+
+.user-row:hover {
+    background-color: #b28f2777;
+    cursor: pointer;
+}
+
+.animated {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.scroll {
+    max-height: 300px;
+    overflow: scroll;
+}

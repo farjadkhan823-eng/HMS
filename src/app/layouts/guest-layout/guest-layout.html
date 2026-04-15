@@ -1,0 +1,125 @@
+<div class="main">
+    <div class="container-fluid p-4">
+        <div class="top-layout">
+            <div class="top-heading">
+                <h3 class="mb-4 ms-4">Booking </h3>
+            </div>
+            <div class="top-login-btn"> <button class="btn btn-md btn-info" (click)="backToLogin()"><span>Logout</span> <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+            </div>
+        </div>
+        <div class="priceBar">
+        </div>
+
+        <div class="card p-3 mb-3">
+            <form [formGroup]="bookingForm" (ngSubmit)="save()">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>Name</label>
+                        <input class="form-control mb-2" formControlName="name" placeholder="Enter Name">
+                    </div>
+                    <div class="col-md-4">
+                        <label>Phone</label>
+                        <input class="form-control mb-2" formControlName="phone" placeholder="Enter Phone-No">
+                    </div>
+                    <div class="col-md-4">
+                        <label>Room Category</label>
+                        <select class="form-control mb-2" formControlName="roomCtg">
+                            <option [ngValue]="ECtg.STANDARD">STANDARD</option>
+                            <option [ngValue]="ECtg.DELUXE">DELUXE</option>
+                            <option [ngValue]="ECtg.SUITE">SUITE</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-3">
+                        <label>Room Quantity</label>
+                        <input class="form-control mb-2" formControlName="roomQty">
+                    </div>
+                    <div class="col-md-3">
+                        <label>Check-In</label>
+                        <input type="date" class="form-control mb-2" formControlName="checkIn">
+                    </div>
+                    <div class="col-md-3">
+                        <label>Check-Out</label>
+                        <input type="date" class="form-control mb-2" formControlName="checkOut">
+                    </div>
+                    <div class="col-md-3" style="margin-top:25px !important;">
+                        <button class="btn btn-sm btn-primary" type="submit" [disabled]="bookingForm.invalid">Book</button>
+                        <button class="btn btn-sm btn-secondary" type="button" (click)="reset()">Clear</button>
+                        <button class="btn btn-sm btn-secondary" type="button" (click)="roomDetails()">Rooms Details</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="table-responsive mt-4">
+            <table class="table table-hover">
+                <thead class="table-light" style="background-color: #C8A94F; color: white;">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Category</th>
+                        <th>Room Qty</th>
+                        <th>Check-In</th>
+                        <th>Check-Out</th>
+                        <th>Days</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                        <th>Feedback</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let booking of bookings">
+                        <td>{{ booking.id }}</td>
+                        <td>{{ booking.name }}</td>
+                        <td>{{ booking.phone }}</td>
+                        <td>{{ booking.roomCtg }}</td>
+                        <td>{{ booking.roomQty }}</td>
+                        <td>{{ booking.checkIn }}</td>
+                        <td>{{ booking.checkOut }}</td>
+                        <td>{{ booking.days }}</td>
+                        <td>{{ booking.price}}</td>
+                        <td>{{booking.status}}</td>
+                        <td>
+                            <div class="again">
+                                <button class="btn btn-sm btn-danger ms-1" (click)="openModalAgain(booking.id)" [hidden]="bookingStatus !== EStatus.CONFIRMED" [disabled]="!cancelByTiming(booking)">Cancel</button>
+                                <div *ngIf="isModalOpenAgain" class="modal-container">
+                                    <div class="modal-content">
+                                        <h5>Are You Sure !</h5>
+                                        <div class="row">
+                                            <button (click)="closeModalAgain()" class="btn btn-sm btn-success w-50">No</button>
+                                            <button class="btn btn-danger btn-sm w-50" (click)="delete(bookingToDelete); closeModalAgain()">Yes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pdf-id-box">
+                                <button class="btn btn-success btn-sm ms-1 " (click)="downloadPDF(booking)" [hidden]="booking.status !== EStatus.CONFIRMED">Download PDF</button>
+                            </div>
+                        </td>
+                        <td>
+                            <button class="btn btn-sm btn-info" (click)="open(booking)" *ngIf="booking.status === EStatus.REJECTED">Feedback</button>
+                            <dialog #modal class="feedback-modal">
+                                <div class="modal-header">
+                                    <h5>Feedback</h5>
+                                    <button class="close-btn" (click)="modal.close()">✕</button>
+                                </div>
+                                <div class="modal-body">
+                                    <textarea class="feedback-textarea" [(ngModel)]="feedbackInput" style="width: 100%;padding: 5px;" readonly></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-sm btn-danger" (click)="modal.close()">Cancel</button>
+                                </div>
+                            </dialog>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pdf-container">
+                <button class="btn btn-sm btn-success" (click)="downloadPDF()">Download Your All History</button>
+            </div>
+        </div>
+    </div>
+</div>

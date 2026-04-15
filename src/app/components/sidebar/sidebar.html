@@ -1,48 +1,67 @@
 <div class="sidebar p-3" style="width:220px; height:100vh;">
     <ul class="nav flex-column">
-        <h3 class="nav-logo">CSH</h3>
+        <h3 class="nav-logo t1">CSH</h3>
 
-        <li class="nav-item">
+        <li class="nav-item n1" *ngIf="hasAccess('/main/dashboard')">
             <a class="nav-link" [routerLink]="'dashboard'">
-                <i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <i class="fas fa-tachometer-alt"></i> Dashboard
+            </a>
         </li>
-        <hr>
 
-        <li class="nav-item">
+        <hr class="hr1">
+
+        <li class="nav-item n2" *ngIf="hasAccess('/main/userManagement')">
             <a class="nav-link" [routerLink]="'userManagement'">
-                <i class="fas fa-users"></i> User Management</a>
+                <i class="fas fa-users"></i> User Management
+            </a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item n3" *ngIf="hasAccess('/main/roomManagement')">
             <a class="nav-link" [routerLink]="'roomManagement'">
-                <i class="fas fa-door-open"></i> Room Management</a>
-        </li>
-        <hr>
-
-        <li class="nav-item">
-            <a class="nav-link" [routerLink]="'booking'">
-                <i class="fas fa-calendar-check"></i> Booking</a>
+                <i class="fas fa-door-open"></i> Room Management
+            </a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item n4" *ngIf="hasAccess('/main/bookingManagement')">
+            <a class="nav-link" [routerLink]="'bookingManagement'">
+                <i class="fa-solid fa-book"></i> Booking Management
+            </a>
+        </li>
+
+        <li class="nav-item n5" *ngIf="hasAccess('/main/reports')">
             <a class="nav-link" [routerLink]="'reports'">
-                <i class="fas fa-chart-line"></i> Reports</a>
-        </li>
-        <hr>
-
-        <li class="nav-item">
-            <a class="nav-link" [routerLink]="'about'">
-                <i class="fas fa-info-circle"></i> About</a>
+                <i class="fas fa-chart-line"></i> Reports
+            </a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" [routerLink]="'contact'">
-                <i class="fas fa-phone-alt"></i> Contact</a>
+
+        <li class="nav-item n6" *ngIf="hasAccess('/guestBooking')">
+            <a class="nav-link" [routerLink]="'/guestBooking'"><i class="fas fa-clipboard-check"></i>Booking</a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" [routerLink]="'privacyPolicy'">
-                <i class="fas fa-shield-alt"></i> Privacy Policy</a>
+        <li class=" nav-item n7 " *ngIf="hasAccess( '/main/roomDetails') ">
+            <a class="nav-link" (click)="roomDetails()" style="cursor: pointer;"><i class="fas fa-hotel"></i>Room Details</a>
+        </li>
+
+
+        <hr class="hr2">
+
+        <li class="nav-item n8 " *ngIf="hasAccess( '/main/about') ">
+            <a class="nav-link" [routerLink]="'about'"><i class="fas fa-info-circle"></i>About</a>
+        </li>
+
+        <li class="nav-item n9 " *ngIf="hasAccess( '/main/contact') ">
+            <a class="nav-link " [routerLink]="'contact'"><i class="fas fa-phone-alt"></i>Contact</a>
+        </li>
+
+
+        <li class="nav-item n10 " *ngIf="hasAccess( '/main/privacyPolicy') ">
+            <a class="nav-link " [routerLink]="'privacyPolicy'"><i class="fas fa-shield-alt"></i>Privacy Policy</a>
+        </li>
+
+        <li class="nav-item n11 ">
+            <a class="nav-link " (click)="backToLogin() " style="cursor: pointer; ">
+                <i class="fas fa-sign-out "></i>Logout</a>
         </li>
     </ul>
 </div>

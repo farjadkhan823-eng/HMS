@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+/* button:active {
+    background: white !important;
+    color: #c84fac !important;
+    border: 1px solid #C8A94F !important;
+    box-shadow: 0px 0px 20px black;
+}
+
+button:focus {
+    background: white !important;
+    color: #C8A94F !important;
+    border: 1px solid #C8A94F !important;
+} */
+
+.grand-parent::selection {
+    background-color: #C8A94F;
+    color: black;
+}

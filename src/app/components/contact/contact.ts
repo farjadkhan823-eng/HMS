@@ -18,4 +18,14 @@ export class Contact {
 submitForm(){
   alert("Form Submit Successfully")
 }
+
+isModalOpenAgain = false;
+
+  openModalAgain(): void {
+    this.isModalOpenAgain = true;
+  }
+
+  closeModalAgain(): void {
+    this.isModalOpenAgain = false;
+  }
 }

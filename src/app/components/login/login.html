@@ -1,18 +1,35 @@
-<div class=" login-wrapper ">
-    <div class="login-box ">
-        <h3>Login</h3>
+<div class="login-wrapper">
+    <div class="login-box">
+        <div class="sign-box">
+            <h3>Login</h3>
+            <form [formGroup]="userLoginObj" (ngSubmit)="onSubmit()">
+                <div class="card-flex">
+                    <label>Email</label>
+                    <input type="email" class="form-control mb-2" placeholder="Email" formControlName="email">
 
-        <div class="mb-3 ">
-            <label>Email</label>
-            <input type="text " class="form-control ">
+                    <label>Password</label>
+                    <div class="row">
+                        <div>
+                            <div class="input-group">
+                                <input [type]="showPassword ? 'text' : 'password'" class="form-control pw" id="password" placeholder="Enter password" formControlName="password">
+                                <button class="btn btn-outline-secondary" type="button" (click)="togglePasswordVisibility()">
+                                        {{ showPassword ? '(x_x)' : '(O_O)' }}
+                                        </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn login-btn w-100" [disabled]="!userLoginObj.valid">
+            Login
+          </button>
+
+                    <div class="switch-page">
+                        <a (click)="loginToSignup()" style="cursor:pointer;">
+              Create a new account !
+            </a>
+                    </div>
+                </div>
+            </form>
         </div>
-
-        <div class="mb-3 ">
-            <label>Password</label>
-            <input type="password " class="form-control ">
-        </div>
-
-        <button class="btn login-btn w-100" (click)="login()">Login</button>
-        <button class="btn login-btn w-100 booking" (click)="booking()">Booking</button>
     </div>
 </div>

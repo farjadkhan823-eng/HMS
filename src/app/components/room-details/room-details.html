@@ -1,8 +1,79 @@
-<div class="cont">
-    <div class="main">
-        <button class="btn btn-info m-3" (click)="standard()">Standard</button>
-        <button class="btn btn-info m-3" (click)="delux()">Delux</button>
-        <button class="btn btn-info m-3" (click)="suit()">Suit</button>
+<div class="main">
+    <div class="container mt-4">
+        <h3 class="text-center mb-3">Categories</h3>
+
+        <div class="text-center mb-4">
+            <button class="btn btn-info me-2" *ngFor="let ctg of categories" (click)="onCtgClick(ctg)">
+      {{ ctg }}
+    </button>
+        </div>
+
+        <div *ngIf="rooms.length">
+            <h4 class="text-center mb-3">
+                Room of category ({{ selectedCtg }})
+            </h4>
+        </div>
+
+        <div class="room-grid" *ngIf="rooms.length">
+            <div class="room-card" *ngFor="let room of rooms">
+
+                <div class="room-images">
+                    <div id="carouselExample" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img [src]="getRoomImage(room.imgone)" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img [src]="getRoomImage(room.imgtwo)" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img [src]="getRoomImage(room.imgthree)" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+                    </div>
+                </div>
+                <div class="prices-box" style="padding: 5px;display: flex;justify-content: center;align-items: center;">
+                    <h4 style="padding: 10px;border-radius: 5px;color: #C8A94F;border: 2px solid #C8A94F;">
+                        Price : {{room.price}}
+                    </h4>
+                </div>
+                <div class="room-details">
+                    <div><strong>Bed:</strong> {{ room.bed }}</div>
+                    <div><strong>Windows:</strong> {{ room.window }}</div>
+                    <div><strong>Smoking:</strong> {{ room.smoking }}</div>
+                    <div><strong>Room Size:</strong> {{ room.size }}</div>
+                    <div><strong>Internet:</strong> {{ room.internet }}</div>
+                    <div><strong>Drinks:</strong> {{ room.drink }}</div>
+                    <div><strong>Snacks:</strong> {{ room.snack }}</div>
+                    <div><strong>Skin-Care:</strong> {{ room.skincare }}</div>
+                    <div><strong>Media:</strong> {{ room.media }}</div>
+                    <div><strong>AC:</strong> {{ room.ac }}</div>
+                    <div><strong>Fans:</strong> {{ room.fan }}</div>
+                    <div><strong>Fridge:</strong> {{ room.fridge }}</div>
+                    <div><strong>Microwave:</strong> {{ room.microwave }}</div>
+                    <div><strong>Iron:</strong> {{ room.iron }}</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ///////// -->
+
+        <div class="banner-container">
+            <div class="main-box">
+                <div class="main-box-1"><label>Swiming Pool</label><img src="assets/pool.jpg" alt=""></div>
+                <div class="main-box-2"><label>Gym Area</label><img src="assets/gym.webp" alt=""></div>
+                <div class="main-box-3"><label>Dining Area</label><img src="assets/dining.jpg" alt=""></div>
+                <div class="main-box-4"><label>Cinema Hall</label><img src="assets/cinema.png" alt=""></div>
+            </div>
+        </div>
     </div>
 </div>
-<router-outlet></router-outlet>

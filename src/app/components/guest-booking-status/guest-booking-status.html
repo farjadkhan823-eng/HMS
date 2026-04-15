@@ -1,0 +1,91 @@
+<div class="container animated mt-5">
+    <div class="row g-4">
+        <div class="col-md-12">
+            <div class="user-card active-card">
+                <div class="card-header main-header">
+                    <h5 class="mb-0"><i class="me-2"></i>Confirmed Booking User Details</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div class="user-row header-row text-uppercase">
+                        <div class="col-1">ID</div>
+                        <div class="col-2">Name</div>
+                        <div class="col-3">Email</div>
+                        <div class="col-3">Rooms</div>
+                        <div class="col-3 text-end">Status</div>
+                    </div>
+                    <div class="scroll">
+                        <div *ngFor="let booking of confirmedBookings" class="user-row">
+                            <div class="col-1 fw-bold">#{{booking.id}}</div>
+                            <div class="col-2 user-name">{{booking.name}}</div>
+                            <div class="col-3 user-name">{{booking.email.slice(0,7 )+"...."}}</div>
+                            <div class="col-3 user-name">{{booking.roomNumbers}}</div>
+                            <div class="col-3 text-end">
+                                <span class="status-pill active-pill">{{booking.status}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 mt-3">
+        <div class="col-md-12">
+            <div class="user-card active-card">
+                <div class="card-header main-header">
+                    <h5 class="mb-0"><i class="me-2"></i>Rejected Booking User Details</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div class="user-row header-row text-uppercase">
+                        <div class="col-1">ID</div>
+                        <div class="col-2">Name</div>
+                        <div class="col-3">Email</div>
+                        <div class="col-3">Rooms</div>
+                        <div class="col-3 text-end">Status</div>
+                    </div>
+                    <div class="scroll">
+                        <div *ngFor="let booking of rejectedBookings" class="user-row">
+                            <div class="col-1 fw-bold">#{{booking.id}}</div>
+                            <div class="col-2 user-name">{{booking.name}}</div>
+                            <div class="col-3 user-name">{{booking.email.slice(0,7 )+"...."}}</div>
+                            <div class="col-3 user-name">{{booking.roomNumbers}}</div>
+                            <div class="col-3 text-end">
+                                <span class="status-pill inactive-pill">{{booking.status}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 mt-3">
+        <div class="col-md-12">
+            <div class="user-card active-card">
+                <div class="card-header main-header">
+                    <h5 class="mb-0"><i class="me-2"></i>Pending Booking User Details</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div class="user-row header-row text-uppercase">
+                        <div class="col-1">ID</div>
+                        <div class="col-2">Name</div>
+                        <div class="col-3">Email</div>
+                        <div class="col-3">Rooms</div>
+                        <div class="col-3 text-end">Status</div>
+                    </div>
+                    <div class="scroll">
+                        <div *ngFor="let booking of pendingBookings" class="user-row">
+                            <div class="col-1 fw-bold">#{{booking.id}}</div>
+                            <div class="col-2 user-name">{{booking.name}}</div>
+                            <div class="col-3 user-name">{{booking.email.slice(0,7 )+"...."}}</div>
+                            <div class="col-3 user-name">{{booking.roomNumbers}}</div>
+                            <div class="col-3 text-end">
+                                <span class="status-pill pending-pill">{{booking.status}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

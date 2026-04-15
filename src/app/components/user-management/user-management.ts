@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../services/user-service';
+import { Logsign } from '../../services/logsign';
 import { User, EUserRole } from '../../models/user.model';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormGroup, FormControl , Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-management',
@@ -12,17 +14,35 @@ import { ReactiveFormsModule, FormGroup, FormControl , Validators} from '@angula
   styleUrl: './user-management.css',
 })
 export class UserManagement {
-  
+
+  constructor(private userService: UserService, private loginService :  Logsign, private router : Router) {
+   
+  // const role = localStorage.getItem('accounts');
+
+  //   if (role !== EUserRole.ADMIN) {
+  //     if (role === EUserRole.ACCOUNTAT) {
+  //       this.router.navigate(['main/reports']);
+  //     }
+  //     else if (role === EUserRole.RECEPTIONIST) {
+  //       this.router.navigate(['main/roomManagement']);
+  //     }
+  //     else {
+  //       this.router.navigate(['']);
+  //     }
+  //   }
+  }
+
   users: User[] = [];
 
   formGroup = new FormGroup({
     id: new FormControl(0),
     name: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
-    password: new FormControl('',Validators.minLength(8)),
+    password: new FormControl('',[Validators.minLength(8), Validators.maxLength(16)]),
     role: new FormControl(EUserRole.ADMIN),
     status: new FormControl('active')
   });
+
 
     onSubmit() {
       // alert("Added Succesfully")
@@ -39,7 +59,6 @@ export class UserManagement {
   
   editUser = false;
   
-  constructor(private userService: UserService) {}
 
   ngOnInit() {
     this.load();
@@ -49,19 +68,29 @@ export class UserManagement {
     this.users = this.userService.getUsers();
   }
 
-  save() {
-    if (this.editUser) {
-      this.userService.updateUser(this.formGroup.value as User);  // added
-    } else {
-      this.userService.addUser(this.formGroup.value as User);   // added
-    }
-    this.reset();
-    this.load();
+save() {
+  const formValue = this.formGroup.value as User;
+
+  const alreadyEmail = this.users.find(u => u.email === formValue.email && u.id !== formValue.id);
+  if (alreadyEmail) {
+    alert('This email already exists!');
+    return;
   }
+
+  if (this.editUser) {
+    this.userService.updateUser(formValue);
+  } else {
+    this.userService.addUser(formValue);
+  }
+
+  this.reset();
+  this.load();
+}
+
 
   edit(user: User) {
     this.editUser = true;
-    this.formGroup.patchValue({...user}) // added
+    this.formGroup.patchValue(user) // added
   }
 
   delete(id: number) {
@@ -70,8 +99,14 @@ export class UserManagement {
   }
 
   reset() {
-    this.editUser = false;
-    this.form = {id: 0,name: '',email: '',password: '',role: EUserRole.ADMIN,status: 'active'};
+    this.form = {id: 0,name: '',email: '',password: '',role: EUserRole.ADMIN,status: 'active'}; 
     this.formGroup.reset(this.form); 
   }
+
+    showPassword = false;
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+
 }

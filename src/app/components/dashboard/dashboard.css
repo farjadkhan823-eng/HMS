@@ -1,15 +1,87 @@
 .main {
-    width: 83.9%;
+    width: 83%;
     margin-left: 220px;
-    /* margin-top: -46.4%; */
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.card {
+    transition: all 0.5s ease !important;
+    height: 100px;
 }
 
 .card:hover {
-    box-shadow: 0 0 20px #a2842d !important;
-    /* transform: translateY(-3px); */
-    transition: 0.3s ease;
+    /* box-shadow: 3px 18px 8px #626262 !important; */
+    /* transform: perspective(400px) rotateX(30deg) rotateZ(-10deg) !important; */
+    box-shadow: 0px 0px 15px #626262 !important;
+    background-color: #C8A94F;
+    color: white;
+    font-size: 14px;
 }
 
-th {
-    background: #c5940cbd !important;
+.card-title {
+    transition: all 0.5s ease;
+}
+
+.card:hover .card-title {
+    font-size: 26px;
+    letter-spacing: 2px;
+}
+
+@keyframes topDown {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.t1,
+.t2 {
+    animation: topDown 0.5s ease forwards;
+    opacity: 0;
+}
+
+.t1 {
+    animation-delay: 0.6s;
+}
+
+.t2 {
+    animation-delay: 0.5s;
+}
+
+.c1,
+.c2,
+.c3,
+.c4 {
+    animation: topDown 0.5s ease forwards;
+    opacity: 0;
+}
+
+.c1 {
+    animation-delay: 0.1s;
+}
+
+.c2 {
+    animation-delay: 0.2s;
+}
+
+.c3 {
+    animation-delay: 0.3s;
+}
+
+.c4 {
+    animation-delay: 0.4s;
 }
