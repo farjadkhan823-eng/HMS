@@ -11,22 +11,34 @@
                     <div class="row">
                         <div>
                             <div class="input-group">
-                                <input [type]="showPassword ? 'text' : 'password'" class="form-control pw" id="password" placeholder="Enter password" formControlName="password">
-                                <button class="btn btn-outline-secondary" type="button" (click)="togglePasswordVisibility()">
-                                        {{ showPassword ? '(x_x)' : '(O_O)' }}
-                                        </button>
+                                <input [type]="showPassword ? 'text' : 'password'" class="form-control pw" id="password"
+                                    placeholder="Enter password" formControlName="password">
+                                <button class="btn btn-outline-secondary" type="button"
+                                    (click)="togglePasswordVisibility()">
+                                    {{ showPassword ? '(x_x)' : '(O_O)' }}
+                                </button>
                             </div>
                         </div>
                     </div>
 
                     <button type="submit" class="btn login-btn w-100" [disabled]="!userLoginObj.valid">
-            Login
-          </button>
+                        Login
+                    </button>
 
                     <div class="switch-page">
                         <a (click)="loginToSignup()" style="cursor:pointer;">
-              Create a new account !
-            </a>
+                            Create a new account !
+                        </a>
+
+                    </div>
+                    <div
+                        style="display: flex;flex-direction: column;text-align: center; margin: 5%;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;background-color: rgb(222, 240, 247);padding: 3px;border-radius: 3px;font-size: 14px;color: grey;">
+                        <span>
+                            email: admin@gmail.com
+                        </span>
+                        <span>
+                            password: admin123
+                        </span>
                     </div>
                 </div>
             </form>
